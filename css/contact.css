@@ -1,0 +1,62 @@
+/* contact.css */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+.form-card {
+  padding: clamp(var(--space-6), 3vw, var(--space-8));
+}
+.form-card h2 {
+  margin-bottom: var(--space-6);
+}
+.form-card .checkbox-field {
+  margin-bottom: var(--space-6);
+}
+
+.contact-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.contact-info-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+}
+.contact-info-card--muted {
+  background: var(--color-surface-2);
+}
+.contact-info-card h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+}
+.contact-info-card h3 svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+.contact-info-card p {
+  font-size: var(--text-sm);
+  margin: 0;
+}
+.contact-info-card a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--text-base);
+}
+.contact-info-card a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

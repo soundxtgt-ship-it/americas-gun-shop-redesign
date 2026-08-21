@@ -1,0 +1,214 @@
+/* tokens.css — design tokens: type scale, spacing, color system
+   Concept: premium tactical/outdoor retail. Deep gunmetal charcoal base,
+   steel-blue primary accent, warm brass secondary, restrained flag-red for
+   alerts/badges only. Americana held in reserve, not splashed everywhere. */
+
+:root {
+  /* ---- Type scale (fluid clamp, 12px floor) ---- */
+  --text-xs: clamp(0.75rem, 0.71rem + 0.2vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.82rem + 0.25vw, 1rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1.02rem + 0.55vw, 1.375rem);
+  --text-xl: clamp(1.375rem, 1.15rem + 1vw, 2rem);
+  --text-2xl: clamp(1.9rem, 1.3rem + 2.2vw, 3.25rem);
+  --text-3xl: clamp(2.4rem, 1.1rem + 3.6vw, 4.5rem);
+  --text-hero: clamp(2.75rem, 0.9rem + 5.5vw, 6.5rem);
+
+  /* ---- Spacing (4px system) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* ---- Radius ---- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* ---- Motion ---- */
+  --transition-interactive: 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-golden: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- Content widths ---- */
+  --content-narrow: 640px;
+  --content-default: 1040px;
+  --content-wide: 1280px;
+  --content-full: 100%;
+
+  /* ---- Fonts ----
+     Display: Clash Display (Fontshare) — bold, geometric, stencil-adjacent, tactical.
+     Body: General Sans (Fontshare) — clean, legible at all sizes, high x-height. */
+  --font-display: 'Clash Display', 'Arial Black', sans-serif;
+  --font-body: 'General Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+}
+
+/* ============ DARK THEME (default) ============
+   Gunmetal charcoal surfaces, warm off-white text, steel-blue primary,
+   brass secondary accent, flag-red reserved for alerts/live badges only. */
+:root,
+[data-theme='dark'] {
+  --color-bg: #14161a;
+  --color-surface: #1a1d22;
+  --color-surface-2: #20242b;
+  --color-surface-offset: #262a32;
+  --color-surface-offset-2: #2d323b;
+  --color-surface-dynamic: #363c47;
+  --color-divider: #2c3038;
+  --color-border: #3a3f49;
+
+  --color-text: #eef0f2;
+  --color-text-muted: #a3a9b3;
+  --color-text-faint: #6b7280;
+  --color-text-inverse: #12141a;
+
+  /* Primary — Steel Blue (trust, precision, POS/tech) */
+  --color-primary: #5b9bd1;
+  --color-primary-hover: #7cb0dd;
+  --color-primary-active: #4885bb;
+  --color-primary-highlight: #223244;
+
+  /* Secondary — Brass/Ordnance Gold (premium tactical warmth) */
+  --color-brass: #c99a4a;
+  --color-brass-hover: #ddb267;
+  --color-brass-active: #a97e37;
+  --color-brass-highlight: #3a2f1c;
+
+  /* Flag Red — reserved for alerts, live badges, low-stock, sale */
+  --color-notification: #d55b52;
+  --color-notification-hover: #e37a72;
+  --color-notification-active: #b8453d;
+  --color-notification-highlight: #3a2320;
+
+  --color-error: #e0645a;
+  --color-error-hover: #e88a82;
+  --color-error-active: #c14c42;
+  --color-error-highlight: #3a2321;
+
+  --color-warning: #d99a3f;
+  --color-warning-hover: #e5b06a;
+  --color-warning-active: #b57e2c;
+  --color-warning-highlight: #3c2f19;
+
+  --color-success: #5fa876;
+  --color-success-hover: #7fbd92;
+  --color-success-active: #488a5d;
+  --color-success-highlight: #1e2f24;
+
+  --color-blue: #5b9bd1;
+  --color-blue-highlight: #223244;
+  --color-purple: #9b8ad1;
+  --color-purple-highlight: #2a2740;
+  --color-gold: #c99a4a;
+  --color-gold-highlight: #3a2f1c;
+
+  --color-focus: #7cb0dd;
+
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.35);
+  --shadow-md: 0 6px 16px oklch(0 0 0 / 0.4);
+  --shadow-lg: 0 16px 40px oklch(0 0 0 / 0.5);
+}
+
+/* ============ LIGHT THEME ============ */
+[data-theme='light'] {
+  --color-bg: #f5f4f1;
+  --color-surface: #ffffff;
+  --color-surface-2: #fbfaf8;
+  --color-surface-offset: #eeece7;
+  --color-surface-offset-2: #e6e3dc;
+  --color-surface-dynamic: #dcd8cf;
+  --color-divider: #ded9d0;
+  --color-border: #cfc9bd;
+
+  --color-text: #1b1d20;
+  --color-text-muted: #5a5f66;
+  --color-text-faint: #8b8f94;
+  --color-text-inverse: #f7f6f3;
+
+  --color-primary: #2f6ea3;
+  --color-primary-hover: #255a86;
+  --color-primary-active: #1c4869;
+  --color-primary-highlight: #d9e6ef;
+
+  --color-brass: #93641e;
+  --color-brass-hover: #785116;
+  --color-brass-active: #5c3e10;
+  --color-brass-highlight: #eee0c4;
+
+  --color-notification: #b5382d;
+  --color-notification-hover: #952c22;
+  --color-notification-active: #74211a;
+  --color-notification-highlight: #f3d9d5;
+
+  --color-error: #b5382d;
+  --color-error-hover: #952c22;
+  --color-error-active: #74211a;
+  --color-error-highlight: #f3d9d5;
+
+  --color-warning: #96650f;
+  --color-warning-hover: #7a520c;
+  --color-warning-active: #5e3f09;
+  --color-warning-highlight: #f0dfc0;
+
+  --color-success: #2e7a48;
+  --color-success-hover: #256238;
+  --color-success-active: #1c4b2b;
+  --color-success-highlight: #d7ecdd;
+
+  --color-blue: #2f6ea3;
+  --color-blue-highlight: #d9e6ef;
+  --color-purple: #6a58a8;
+  --color-purple-highlight: #e2dcf1;
+  --color-gold: #93641e;
+  --color-gold-highlight: #eee0c4;
+
+  --color-focus: #255a86;
+
+  --shadow-sm: 0 1px 2px oklch(0.2 0.02 80 / 0.08);
+  --shadow-md: 0 6px 16px oklch(0.2 0.02 80 / 0.1);
+  --shadow-lg: 0 16px 40px oklch(0.2 0.02 80 / 0.14);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --color-bg: #f5f4f1;
+    --color-surface: #ffffff;
+    --color-surface-2: #fbfaf8;
+    --color-surface-offset: #eeece7;
+    --color-surface-offset-2: #e6e3dc;
+    --color-surface-dynamic: #dcd8cf;
+    --color-divider: #ded9d0;
+    --color-border: #cfc9bd;
+    --color-text: #1b1d20;
+    --color-text-muted: #5a5f66;
+    --color-text-faint: #8b8f94;
+    --color-text-inverse: #f7f6f3;
+    --color-primary: #2f6ea3;
+    --color-primary-hover: #255a86;
+    --color-primary-active: #1c4869;
+    --color-primary-highlight: #d9e6ef;
+    --color-brass: #93641e;
+    --color-brass-hover: #785116;
+    --color-brass-active: #5c3e10;
+    --color-brass-highlight: #eee0c4;
+    --color-notification: #b5382d;
+    --color-error: #b5382d;
+    --color-warning: #96650f;
+    --color-success: #2e7a48;
+    --color-focus: #255a86;
+    --shadow-sm: 0 1px 2px oklch(0.2 0.02 80 / 0.08);
+    --shadow-md: 0 6px 16px oklch(0.2 0.02 80 / 0.1);
+    --shadow-lg: 0 16px 40px oklch(0.2 0.02 80 / 0.14);
+  }
+}
