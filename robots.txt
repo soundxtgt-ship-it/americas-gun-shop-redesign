@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://americasgunshop.us/sitemap.xml

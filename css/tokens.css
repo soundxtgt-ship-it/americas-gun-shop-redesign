@@ -70,10 +70,10 @@
 
   --color-text: #eef0f2;
   --color-text-muted: #a3a9b3;
-  --color-text-faint: #6b7280;
+  --color-text-faint: #8b949f;
   --color-text-inverse: #12141a;
 
-  /* Primary — Steel Blue (trust, precision, POS/tech) */
+  /* Primary — Steel Blue (trust and precision) */
   --color-primary: #5b9bd1;
   --color-primary-hover: #7cb0dd;
   --color-primary-active: #4885bb;
@@ -133,7 +133,7 @@
 
   --color-text: #1b1d20;
   --color-text-muted: #5a5f66;
-  --color-text-faint: #8b8f94;
+  --color-text-faint: #666b70;
   --color-text-inverse: #f7f6f3;
 
   --color-primary: #2f6ea3;
@@ -192,7 +192,7 @@
     --color-border: #cfc9bd;
     --color-text: #1b1d20;
     --color-text-muted: #5a5f66;
-    --color-text-faint: #8b8f94;
+    --color-text-faint: #666b70;
     --color-text-inverse: #f7f6f3;
     --color-primary: #2f6ea3;
     --color-primary-hover: #255a86;

@@ -71,7 +71,7 @@
   flex-shrink: 0;
 }
 
-/* Live sync strip */
+/* Inventory notice strip */
 .sync-strip {
   background: var(--color-primary-highlight);
   border-bottom: 1px solid var(--color-divider);
@@ -259,64 +259,5 @@
   .compliance-grid {
     grid-template-columns: 1fr;
     gap: var(--space-6);
-  }
-}
-
-/* Reviews */
-.reviews-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: clamp(var(--space-8), 4vw, var(--space-12));
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: var(--space-10);
-  align-items: center;
-}
-.reviews-score {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--space-2);
-  border-right: 1px solid var(--color-divider);
-  padding-right: var(--space-8);
-}
-.reviews-score-number {
-  font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  color: var(--color-text);
-}
-.reviews-stars {
-  display: flex;
-  gap: 2px;
-  color: var(--color-brass);
-}
-.reviews-score-count {
-  font-size: var(--text-xs);
-  color: var(--color-text-faint);
-}
-.reviews-card blockquote p {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: var(--text-lg);
-  color: var(--color-text);
-  font-style: normal;
-}
-.reviews-card blockquote footer {
-  margin-top: var(--space-4);
-  font-size: var(--text-sm);
-  color: var(--color-text-faint);
-}
-@media (max-width: 700px) {
-  .reviews-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .reviews-score {
-    border-right: none;
-    border-bottom: 1px solid var(--color-divider);
-    padding-right: 0;
-    padding-bottom: var(--space-6);
   }
 }

@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const CATEGORY_COPY = {
     handguns: 'Compacts, carry pistols, and duty sidearms.',
     'rifles-shotguns': 'Bolt guns, ARs, pumps, and field shotguns.',
-    ammunition: 'Range and defensive loads in stock calibers.',
+    ammunition: 'Range and defensive loads in common calibers.',
     'optics-accessories': 'Scopes, holsters, lights, cleaning gear.',
-    'nfa-suppressors': 'Suppressors &amp; SBR builds — Form 4 guidance included.',
-    'used-consignment': 'Inspected trade-ins at fair, honest prices.',
+    'nfa-suppressors': 'Suppressors, mounts, and related sample listings.',
+    'used-consignment': 'Sample trade-in and consignment listings.',
   };
 
   const categoryGrid = document.getElementById('category-grid');
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
       return `
         <a class="category-card" href="./pages/shop.html?cat=${cat.id}">
           <svg class="category-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">${icon}</svg>
-          <h3>${cat.label}</h3>
+          <h3>${window.AGSUtils.escapeHTML(cat.label)}</h3>
           <p>${CATEGORY_COPY[cat.id]}</p>
           <span class="category-card-count">
-            <span>${count} in stock now</span>
+            <span>${count} sample listings</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </span>
         </a>
@@ -31,11 +31,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const featuredEl = document.getElementById('featured-products');
   if (featuredEl) {
-    // "Just synced" = lowest syncMinutes across catalog, one per category for variety
+    // Choose one representative sample per category for variety.
     const seen = new Set();
     const featured = window.AGS.PRODUCTS
-      .slice()
-      .sort((a, b) => a.syncMinutes - b.syncMinutes)
       .filter((p) => {
         if (seen.has(p.category)) return false;
         seen.add(p.category);
@@ -49,9 +47,10 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!btn) return;
       const product = window.AGS.getProduct(btn.getAttribute('data-add-to-cart'));
       if (!product) return;
-      window.AGSCart.add(product, 1);
+      const result = window.AGSCart.add(product, 1);
+      if (!result.ok) return;
       const original = btn.textContent;
-      btn.textContent = 'Added ✓';
+      btn.textContent = 'Saved ✓';
       btn.disabled = true;
       setTimeout(() => {
         btn.textContent = original;

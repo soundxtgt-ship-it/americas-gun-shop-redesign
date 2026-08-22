@@ -31,6 +31,10 @@ body {
   width: 100%;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 img,
 picture,
 video,

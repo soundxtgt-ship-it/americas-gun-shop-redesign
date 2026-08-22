@@ -15,6 +15,12 @@
 .form-card .checkbox-field {
   margin-bottom: var(--space-6);
 }
+.contact-action-card p {
+  margin-bottom: var(--space-5);
+}
+.contact-action-card .btn + .btn {
+  margin-top: var(--space-3);
+}
 
 .contact-info-panel {
   display: flex;

@@ -27,10 +27,6 @@
   align-items: center;
   margin-bottom: var(--space-3);
 }
-.trend-chip {
-  font-size: var(--text-xs);
-  font-weight: 600;
-}
 .product-detail-info h1 {
   font-size: var(--text-2xl);
   max-width: none;
@@ -39,17 +35,6 @@
   color: var(--color-text-faint);
   font-size: var(--text-sm);
   margin-top: var(--space-2);
-}
-.product-detail-rating {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  color: var(--color-brass);
-  font-size: var(--text-sm);
-  margin-top: var(--space-3);
-}
-.product-detail-rating span {
-  color: var(--color-text-faint);
 }
 .product-detail-price {
   font-family: var(--font-display);
@@ -89,7 +74,6 @@
 }
 .stock-panel--live .dot {
   background: var(--color-success);
-  animation: pulse-dot 2s infinite;
 }
 .stock-panel--low {
   background: var(--color-warning-highlight);
@@ -125,10 +109,6 @@
 }
 .qty-stepper--lg span {
   width: 44px;
-}
-
-#reserve-success {
-  margin-top: var(--space-4);
 }
 
 .product-detail-specs {

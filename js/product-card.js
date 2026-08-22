@@ -1,4 +1,4 @@
-/* product-card.js — renders a product card + live-stock badge.
+/* product-card.js — renders a product card + sample-availability badge.
    Shared by the homepage featured rail and the shop listing grid. */
 
 (function (global) {
@@ -15,55 +15,53 @@
 
   function stockBadge(product) {
     if (product.stock === 0) {
-      return '<span class="badge badge-out">Out of stock</span>';
+      return '<span class="badge badge-out">Sample: unavailable</span>';
     }
     if (product.stock <= 3) {
-      return '<span class="badge badge-low"><span class="dot" style="background:currentColor;width:6px;height:6px;border-radius:50%;"></span>Only ' + product.stock + ' left</span>';
+      return '<span class="badge badge-low"><span class="dot"></span>Sample: ' + product.stock + ' available</span>';
     }
-    return '<span class="badge badge-live"><span class="dot"></span>' + product.stock + ' in stock</span>';
-  }
-
-  function trendIcon(trend) {
-    if (trend === 'up') return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
-    if (trend === 'down') return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M7 7l10 10M9 17H17V9"/></svg>';
-    return '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12h14"/></svg>';
+    return '<span class="badge badge-live"><span class="dot"></span>Sample: ' + product.stock + ' available</span>';
   }
 
   function card(product, rootPath) {
     const root = rootPath || './';
     const icon = CATEGORY_ICONS[product.category] || '';
-    const isRegulated = window.AGS.isRegulated(product.category);
+    const isRegulated = window.AGS.isRegulated(product);
+    const escapeHTML = window.AGSUtils.escapeHTML;
+    const escapeAttr = window.AGSUtils.escapeAttr;
+    const safeId = escapeAttr(product.id);
+    const safeName = escapeHTML(product.name);
+    const safeNameAttr = escapeAttr(product.name);
+    const safeBrand = escapeHTML(product.brand);
+    const safeCaliber = product.caliber ? escapeHTML(product.caliber) : '';
     const conditionBadge = product.condition === 'used'
       ? '<span class="badge badge-used">Used</span>'
       : '<span class="badge badge-new">New</span>';
-    const trendColor = product.trend === 'up' ? 'var(--color-success)' : product.trend === 'down' ? 'var(--color-error)' : 'var(--color-text-faint)';
 
     return `
-      <article class="product-card" data-product-id="${product.id}">
-        <a class="product-card-media" href="${root}pages/product.html?id=${product.id}" aria-label="View details for ${product.name}">
+      <article class="product-card" data-product-id="${safeId}">
+        <a class="product-card-media" href="${root}pages/product.html?id=${encodeURIComponent(product.id)}" aria-label="View details for ${safeNameAttr}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">${icon}</svg>
         </a>
         <div class="product-card-body">
           <div class="product-card-top">
             ${conditionBadge}
-            ${product.category === 'nfa-suppressors' ? '<span class="badge badge-nfa">NFA item</span>' : ''}
+            ${product.category === 'nfa-suppressors' && isRegulated ? '<span class="badge badge-nfa">NFA item</span>' : ''}
           </div>
-          <a class="product-card-title" href="${root}pages/product.html?id=${product.id}">${product.name}</a>
-          <p class="product-card-meta">${product.brand}${product.caliber ? ' &middot; ' + product.caliber : ''}</p>
+          <a class="product-card-title" href="${root}pages/product.html?id=${encodeURIComponent(product.id)}">${safeName}</a>
+          <p class="product-card-meta">${safeBrand}${safeCaliber ? ' &middot; ' + safeCaliber : ''}</p>
           <div class="product-card-price-row">
             <span class="product-card-price tabular">${window.AGS.formatPrice(product.price)}</span>
-            <span class="product-card-rating" aria-label="Rated ${product.rating} out of 5 from ${product.reviewCount} reviews">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01z"/></svg>
-              ${product.rating}
-            </span>
           </div>
           <div class="product-card-stock-row">
             ${stockBadge(product)}
-            <span class="sync-note" style="color:${trendColor}">${trendIcon(product.trend)} synced ${product.syncMinutes}m ago</span>
+            <span class="sync-note">Confirm with shop</span>
           </div>
-          ${isRegulated
-            ? `<a class="btn btn-secondary btn-block btn-sm" href="${root}pages/product.html?id=${product.id}">Reserve &amp; complete in-store</a>`
-            : `<button class="btn btn-primary btn-block btn-sm" type="button" data-add-to-cart="${product.id}">Add to cart</button>`}
+          ${product.stock === 0
+            ? '<button class="btn btn-secondary btn-block btn-sm" type="button" disabled>Currently unavailable</button>'
+            : isRegulated
+              ? `<a class="btn btn-secondary btn-block btn-sm" href="${root}pages/product.html?id=${encodeURIComponent(product.id)}">View pickup details</a>`
+              : `<button class="btn btn-primary btn-block btn-sm" type="button" data-add-to-cart="${safeId}">Save to pickup list</button>`}
         </div>
       </article>
     `;

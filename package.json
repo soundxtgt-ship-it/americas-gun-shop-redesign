@@ -1,0 +1,13 @@
+{
+  "name": "americas-gun-shop-redesign",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static, production-hardened catalog preview for America's Gun Shop.",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "serve": "python3 -m http.server 8000"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

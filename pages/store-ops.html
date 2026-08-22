@@ -3,12 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Store Operations | Powered by Our POS | America's Gun Shop</title>
-  <meta name="description" content="See how America's Gun Shop keeps online inventory in sync with our in-store point-of-sale system — live sales, stock levels, and alerts." />
+  <title>How the Catalog Works | America's Gun Shop</title>
+  <meta name="description" content="Understand the difference between this redesigned catalog preview and the official America's Gun Shop inventory and contact systems." />
+  <meta property="og:title" content="How the Catalog Works | America's Gun Shop" />
+  <meta property="og:description" content="Preview here, then confirm current inventory, services, and schedules with the shop." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="America's Gun Shop" />
+  <meta property="og:url" content="https://americasgunshop.us/pages/store-ops.html" />
+  <meta property="og:image" content="https://americasgunshop.us/assets/img/og-social.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="America's Gun Shop, West Chester, Pennsylvania" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#14161a" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="canonical" href="https://americasgunshop.us/pages/store-ops.html" />
   <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+  <script src="../js/theme-init.js"></script>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&amp;f[]=general-sans@400,500,600,700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/tokens.css" />
   <link rel="stylesheet" href="../css/style.css" />
@@ -16,6 +29,7 @@
 </head>
 <body data-root="../" data-page="store-ops">
   <div id="site-header"></div>
+  <noscript><div class="noscript-notice"><p>Navigation enhancements require JavaScript. You can still <a href="https://shop.americasgunshop.us/">browse the official store</a> or <a href="tel:+16105560223">call (610) 556-0223</a>.</p></div></noscript>
 
   <main id="main-content">
     <section class="page-hero section--tight">
@@ -23,111 +37,60 @@
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="../index.html">Home</a>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-          <span aria-current="page">Store Operations</span>
+          <span aria-current="page">How the catalog works</span>
         </nav>
-        <p class="eyebrow">Powered by our POS</p>
-        <h1>How our systems stay in sync</h1>
-        <p>Every product page on this site reads directly from the same point-of-sale system running our register. This dashboard mirrors what our staff sees in the back office &mdash; a transparent look at how "live inventory" actually works.</p>
+        <p class="eyebrow">Clear expectations</p>
+        <h1>Preview here. Confirm with the shop.</h1>
+        <p>This redesign demonstrates a modern browsing experience, but it is not connected to the store's register, payment processor, booking calendar, or message system.</p>
       </div>
     </section>
 
     <section class="section--tight dashboard-section">
       <div class="container">
-        <div class="dashboard-toolbar">
-          <div class="dashboard-toolbar-status">
-            <span class="badge badge-live"><span class="dot"></span>System online</span>
-            <span class="hint" id="last-sync-label">Last full sync: just now</span>
-          </div>
-          <div class="dashboard-toolbar-range" role="group" aria-label="Date range">
-            <button type="button" class="range-btn is-active" data-range="7">7 days</button>
-            <button type="button" class="range-btn" data-range="30">30 days</button>
-            <button type="button" class="range-btn" data-range="90">90 days</button>
-          </div>
+        <div class="section-heading">
+          <p class="eyebrow">Three simple steps</p>
+          <h2>From browsing to an in-store visit</h2>
         </div>
 
-        <!-- KPI CARDS -->
-        <div class="kpi-grid">
-          <div class="kpi-card">
-            <span class="kpi-label">Today's sales</span>
-            <span class="kpi-value tabular" id="kpi-sales">$0</span>
-            <span class="kpi-trend kpi-trend--up">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-              8.2% vs. last period
-            </span>
-          </div>
-          <div class="kpi-card">
-            <span class="kpi-label">Transactions today</span>
-            <span class="kpi-value tabular" id="kpi-transactions">0</span>
-            <span class="kpi-trend kpi-trend--up">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-              3.1% vs. last period
-            </span>
-          </div>
-          <div class="kpi-card">
-            <span class="kpi-label">SKUs tracked live</span>
-            <span class="kpi-value tabular" id="kpi-skus">0</span>
-            <span class="kpi-trend kpi-trend--flat">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12h14"/></svg>
-              Stable
-            </span>
-          </div>
-          <div class="kpi-card">
-            <span class="kpi-label">Low-stock alerts</span>
-            <span class="kpi-value tabular" id="kpi-low-stock">0</span>
-            <span class="kpi-trend kpi-trend--down">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M7 7l10 10M9 17H17V9"/></svg>
-              Needs reorder
-            </span>
-          </div>
-        </div>
+        <ol class="ops-process" role="list">
+          <li class="kpi-card">
+            <span class="ops-step tabular" aria-hidden="true">01</span>
+            <h3>Explore the preview</h3>
+            <p>Use the sample catalog to explore categories, filters, product details, and the device-saved pickup list.</p>
+          </li>
+          <li class="kpi-card">
+            <span class="ops-step tabular" aria-hidden="true">02</span>
+            <h3>Check the official store</h3>
+            <p>Use the official online store for current listings. Sample prices, quantities, and product names on this redesign are illustrative.</p>
+          </li>
+          <li class="kpi-card">
+            <span class="ops-step tabular" aria-hidden="true">03</span>
+            <h3>Call before visiting</h3>
+            <p>Confirm time-sensitive inventory, fees, services, class dates, and transfer readiness directly with staff.</p>
+          </li>
+        </ol>
 
-        <!-- CHARTS ROW 1 -->
-        <div class="chart-grid chart-grid--split">
+        <div class="chart-grid chart-grid--split ops-actions">
           <div class="chart-card">
-            <div class="chart-card-header">
-              <h2 class="h3">Daily sales</h2>
-              <p class="hint">Gross register sales by day, synced hourly</p>
-            </div>
-            <div class="chart-canvas-wrap chart-canvas-wrap--tall">
-              <canvas id="chart-daily-sales" role="img" aria-label="Line chart of daily sales over the selected date range"></canvas>
-            </div>
+            <p class="eyebrow">Current inventory</p>
+            <h2 class="h3">Shop through the official storefront</h2>
+            <p>The established storefront is the authoritative online destination for current product listings.</p>
+            <a class="btn btn-primary" href="https://shop.americasgunshop.us/" target="_blank" rel="noopener noreferrer">Open official online store <span aria-hidden="true">&#8599;</span></a>
           </div>
           <div class="chart-card">
-            <div class="chart-card-header">
-              <h2 class="h3">Sales by category</h2>
-              <p class="hint">Share of revenue, current period</p>
-            </div>
-            <div class="chart-canvas-wrap">
-              <canvas id="chart-category-share" role="img" aria-label="Doughnut chart of revenue share by product category"></canvas>
+            <p class="eyebrow">Questions and services</p>
+            <h2 class="h3">Reach the shop directly</h2>
+            <p>Call for the fastest answer, or use the secure contact form hosted on the official store.</p>
+            <div class="service-action-row">
+              <a class="btn btn-primary" href="tel:+16105560223">Call (610) 556-0223</a>
+              <a class="btn btn-secondary" href="https://shop.americasgunshop.us/contact-us" target="_blank" rel="noopener noreferrer">Official contact form <span aria-hidden="true">&#8599;</span></a>
             </div>
           </div>
         </div>
 
-        <!-- CHARTS ROW 2 -->
-        <div class="chart-grid chart-grid--split">
-          <div class="chart-card">
-            <div class="chart-card-header">
-              <h2 class="h3">Inventory levels by category</h2>
-              <p class="hint">Units on hand, synced from POS just now</p>
-            </div>
-            <div class="chart-canvas-wrap chart-canvas-wrap--tall">
-              <canvas id="chart-inventory-levels" role="img" aria-label="Bar chart of inventory units on hand by category"></canvas>
-            </div>
-          </div>
-
-          <div class="chart-card low-stock-card">
-            <div class="chart-card-header">
-              <h2 class="h3">Low-stock alerts</h2>
-              <p class="hint">Items at or below reorder threshold</p>
-            </div>
-            <ul class="low-stock-list" id="low-stock-list"></ul>
-          </div>
-        </div>
-
-        <!-- FOOTER NOTE -->
         <div class="dashboard-footnote">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-          <p>This dashboard is a design mockup illustrating how a real POS integration would surface data. Figures are generated for demonstration and refresh with simulated variance &mdash; no live payment or inventory system is connected.</p>
+          <p>The pickup list is stored only in this browser. It does not create an order, reserve inventory, transmit personal information, or guarantee price or availability.</p>
         </div>
       </div>
     </section>
@@ -135,338 +98,9 @@
 
   <div id="site-footer"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="../js/utils.js" defer></script>
   <script src="../js/data.js" defer></script>
   <script src="../js/cart.js" defer></script>
   <script src="../js/partials.js" defer></script>
-  <script src="../js/store-ops.js" defer></script>
-<script data-pplx-inline-edit>
-(function () {
-  if (window === window.top) return;
-
-  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
-  const MAX_FONT_BYTES = 500 * 1024;
-  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
-  let scrollForwarding = false;
-  let scrollRaf = 0;
-  let trustedTopOrigin = null;
-
-  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
-  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
-  // across multiple labels.
-  function matchesAllowedOrigin(origin) {
-    if (!origin) return false;
-    for (const entry of allowedParentOrigins) {
-      if (!entry.includes("*")) {
-        if (entry === origin) return true;
-        continue;
-      }
-      const pattern = new RegExp(
-        "^" +
-          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
-          "$",
-      );
-      if (pattern.test(origin)) return true;
-    }
-    return false;
-  }
-
-  // Trust decision: when the sender is same-origin-visible (event.origin is a
-  // real origin like https://www.perplexity.ai) we trust event.origin directly.
-  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
-  // broker's stamped `parentOrigin` to identify the top window. The fallback
-  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
-  // on the response path (see postToTrustedTop) to ensure replies can't be
-  // delivered to anyone but the actual top window of that claimed origin.
-  function getTrustedParentOrigin(event) {
-    const forwardedParentOrigin =
-      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
-    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
-    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
-  }
-
-  // All responses go to window.top with targetOrigin = the allowlisted origin.
-  // An attacker that iframes us inside their own null-origin broker can claim
-  // any parentOrigin they like, but the browser will drop the reply whenever
-  // the real top's origin doesn't match — so the screenshot never leaves.
-  function postToTrustedTop(message) {
-    if (!trustedTopOrigin) return;
-    try {
-      window.top.postMessage(message, trustedTopOrigin);
-    } catch (_error) {}
-  }
-
-  function inlineAll(original, clone) {
-    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
-
-    try {
-      const computedStyle = getComputedStyle(original);
-      // cssText on a computed style is the serialized declaration in modern
-      // Chromium/Safari — a single read beats enumerating ~400 longhand
-      // properties. Firefox returns "" here, so we fall back on empty.
-      const serialized = computedStyle.cssText;
-      if (serialized) {
-        clone.style.cssText = serialized;
-      } else {
-        const parts = new Array(computedStyle.length);
-        for (let index = 0; index < computedStyle.length; index += 1) {
-          const property = computedStyle[index];
-          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
-        }
-        clone.style.cssText = parts.join("");
-      }
-    } catch (_error) {}
-
-    const originalChildren = original.children;
-    const clonedChildren = clone.children;
-    for (
-      let index = 0;
-      index < originalChildren.length && index < clonedChildren.length;
-      index += 1
-    ) {
-      inlineAll(originalChildren[index], clonedChildren[index]);
-    }
-  }
-
-  function extractFontUrl(srcValue) {
-    const matches = [
-      ...srcValue.matchAll(
-        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
-      ),
-    ];
-    if (matches.length === 0) return null;
-    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
-    if (woff2) return woff2[1];
-    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
-    if (woff) return woff[1];
-    return matches[0][1];
-  }
-
-  // Cache resolved font URL -> data URI across captures. Fonts on a page
-  // essentially never change, and a batch run emits multiple captures back to
-  // back — without this we'd refetch + re-base64 every time.
-  const fontDataUriCache = new Map();
-  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
-
-  async function fetchAsDataUri(url) {
-    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
-    let dataUri = null;
-    try {
-      const response = await fetch(url, { mode: "cors", credentials: "omit" });
-      if (response.ok) {
-        const blob = await response.blob();
-        if (blob.size <= MAX_FONT_BYTES) {
-          dataUri = await new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onloadend = () =>
-              resolve(typeof reader.result === "string" ? reader.result : null);
-            reader.onerror = () => resolve(null);
-            reader.readAsDataURL(blob);
-          });
-        }
-      }
-    } catch (_error) {
-      dataUri = null;
-    }
-    fontDataUriCache.set(url, dataUri);
-    return dataUri;
-  }
-
-  function collectFontFaceRuleTexts() {
-    const rules = [];
-    for (const sheet of document.styleSheets) {
-      let cssRules;
-      try {
-        cssRules = sheet.cssRules;
-      } catch (_error) {
-        continue;
-      }
-      if (!cssRules) continue;
-      for (const rule of cssRules) {
-        const cssText = rule.cssText || "";
-        if (cssText.startsWith("@font-face")) rules.push(cssText);
-      }
-    }
-    return rules;
-  }
-
-  async function buildInlinedFontCss() {
-    const ruleTexts = collectFontFaceRuleTexts();
-    if (ruleTexts.length === 0) return null;
-
-    const resolved = ruleTexts.map((cssText) => {
-      if (!SRC_DECLARATION_RE.test(cssText)) return null;
-      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
-      if (!srcMatch) return null;
-      const url = extractFontUrl(srcMatch[1]);
-      if (!url) return null;
-      try {
-        return { cssText, url: new URL(url, document.baseURI).href };
-      } catch (_error) {
-        return null;
-      }
-    });
-
-    const dataUris = await Promise.all(
-      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
-    );
-
-    const inlined = [];
-    let totalBytes = 0;
-    for (let index = 0; index < resolved.length; index += 1) {
-      const entry = resolved[index];
-      const dataUri = dataUris[index];
-      if (!entry || !dataUri) continue;
-      const approxBytes = dataUri.length * 0.75;
-      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
-      totalBytes += approxBytes;
-      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
-    }
-    return inlined.length > 0 ? inlined.join("\n") : null;
-  }
-
-  function stripExternal(clone) {
-    const images = clone.querySelectorAll("img");
-    for (let index = 0; index < images.length; index += 1) {
-      const src = images[index].getAttribute("src");
-      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
-    }
-
-    const elements = clone.querySelectorAll("*");
-    for (let index = 0; index < elements.length; index += 1) {
-      const style = elements[index].style.cssText;
-      if (style && style.includes("url(")) {
-        elements[index].style.cssText = style.replace(
-          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
-          "none",
-        );
-      }
-    }
-  }
-
-  function emitScroll() {
-    scrollRaf = 0;
-    if (!scrollForwarding) return;
-    postToTrustedTop({
-      type: "INLINE_EDIT_SCROLL",
-      scrollX: window.scrollX,
-      scrollY: window.scrollY,
-    });
-  }
-
-  window.addEventListener(
-    "scroll",
-    function () {
-      if (!scrollForwarding || scrollRaf) return;
-      scrollRaf = requestAnimationFrame(emitScroll);
-    },
-    { passive: true, capture: true },
-  );
-
-  async function handleCaptureRequest(event) {
-    const requestId = event.data.requestId;
-    const scrollX = window.scrollX;
-    const scrollY = window.scrollY;
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-
-    function postResult(dataUrl) {
-      postToTrustedTop({
-        type: "INLINE_EDIT_SCREENSHOT_RESULT",
-        requestId,
-        dataUrl,
-        scrollX,
-        scrollY,
-      });
-    }
-
-    try {
-      // Wait for any pending web fonts to resolve so both inline metrics and
-      // the @font-face inlining below see the same loaded faces.
-      if (document.fonts && document.fonts.ready) {
-        try {
-          await document.fonts.ready;
-        } catch (_error) {}
-      }
-
-      const clone = document.documentElement.cloneNode(true);
-      inlineAll(document.documentElement, clone);
-
-      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
-      for (let index = 0; index < removedNodes.length; index += 1) {
-        removedNodes[index].remove();
-      }
-
-      stripExternal(clone);
-
-      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
-      // can resolve them — external font URLs aren't fetched during
-      // foreignObject rendering, which would otherwise force a fallback face
-      // and change text metrics.
-      const inlinedFontCss = await buildInlinedFontCss();
-      if (inlinedFontCss) {
-        const styleEl = document.createElement("style");
-        styleEl.textContent = inlinedFontCss;
-        const head = clone.querySelector("head");
-        if (head) head.appendChild(styleEl);
-        else clone.insertBefore(styleEl, clone.firstChild);
-      }
-
-      const html = new XMLSerializer().serializeToString(clone);
-      const svg =
-        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
-        '<foreignObject width="100%" height="100%">' +
-        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
-        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
-        html +
-        "</div></div></foreignObject></svg>";
-      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
-      const image = new Image();
-      image.onload = function () {
-        const canvas = document.createElement("canvas");
-        canvas.width = width;
-        canvas.height = height;
-        canvas.getContext("2d").drawImage(image, 0, 0);
-        postResult(canvas.toDataURL("image/png"));
-      };
-      image.onerror = function () {
-        postResult(null);
-      };
-      image.src = svgUrl;
-    } catch (_error) {
-      postResult(null);
-    }
-  }
-
-  window.addEventListener("message", function (event) {
-    if (!event.data) return;
-    // Only accept messages from the direct parent frame. Blocks sibling /
-    // unrelated-window postMessage senders that could otherwise reach us.
-    if (event.source !== window.parent) return;
-
-    const trustedParentOrigin = getTrustedParentOrigin(event);
-    if (!trustedParentOrigin) return;
-    trustedTopOrigin = trustedParentOrigin;
-
-    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
-      scrollForwarding = true;
-      emitScroll();
-      return;
-    }
-
-    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
-      scrollForwarding = false;
-      if (scrollRaf) cancelAnimationFrame(scrollRaf);
-      scrollRaf = 0;
-      return;
-    }
-
-    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
-
-    handleCaptureRequest(event);
-  });
-})();
-
-
-</script></body>
+</body>
 </html>

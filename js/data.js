@@ -1,5 +1,5 @@
-/* data.js — mock inventory & POS data shared across pages.
-   All data is fictional/illustrative for design-mockup purposes. */
+/* data.js — illustrative sample catalog shared across pages.
+   It is intentionally not connected to store inventory or sales systems. */
 
 (function (global) {
   'use strict';
@@ -32,6 +32,11 @@
 
   function pick(rand, arr) {
     return arr[Math.floor(rand() * arr.length)];
+  }
+
+  function inferBrand(name) {
+    const normalized = name.replace(/^Used — /, '');
+    return BRANDS.find((brand) => normalized.startsWith(brand)) || null;
   }
 
   const HANDGUN_NAMES = [
@@ -91,7 +96,7 @@
 
     function addBatch(names, categoryId, priceRange, calPool) {
       names.forEach((name) => {
-        const brand = pick(rand, BRANDS);
+        const brand = inferBrand(name) || pick(rand, BRANDS);
         const caliber = categoryId === 'ammunition' && AMMO_CALIBER_MAP[name]
           ? AMMO_CALIBER_MAP[name]
           : pick(rand, calPool || CALIBERS);
@@ -101,11 +106,9 @@
         if (stockRoll < 0.12) stock = 0;
         else if (stockRoll < 0.3) stock = Math.ceil(rand() * 3);
         else stock = Math.ceil(rand() * 22) + 3;
-        const condition = categoryId === 'used-consignment'
-          ? 'used'
-          : (categoryId !== 'ammunition' && rand() < 0.08 ? 'used' : 'new');
-        const trend = rand() < 0.5 ? 'up' : rand() < 0.85 ? 'flat' : 'down';
-        const syncMinutes = Math.ceil(rand() * 14) + 1;
+        const condition = categoryId === 'used-consignment' ? 'used' : 'new';
+        const regulated = ['handguns', 'rifles-shotguns', 'used-consignment'].includes(categoryId)
+          || (categoryId === 'nfa-suppressors' && !/mount kit/i.test(name));
         id += 1;
         products.push({
           id: 'AGS-' + id,
@@ -116,10 +119,7 @@
           price: Math.max(9.99, price),
           stock,
           condition,
-          trend,
-          syncMinutes,
-          rating: (3.9 + rand() * 1.1).toFixed(1),
-          reviewCount: Math.ceil(rand() * 60) + 3,
+          regulated,
           sku: 'SKU-' + (100000 + id),
         });
       });
@@ -142,9 +142,17 @@
     return c ? c.label : id;
   }
 
-  function isRegulated(categoryId) {
+  function isRegulated(productOrCategory) {
+    if (productOrCategory && typeof productOrCategory === 'object') {
+      return Boolean(productOrCategory.regulated);
+    }
+    const categoryId = productOrCategory;
     const c = CATEGORIES.find((c) => c.id === categoryId);
     return c ? c.regulated : false;
+  }
+
+  function isValidCategory(id) {
+    return CATEGORIES.some((category) => category.id === id);
   }
 
   function getProduct(id) {
@@ -162,6 +170,7 @@
     PRODUCTS,
     categoryLabel,
     isRegulated,
+    isValidCategory,
     getProduct,
     formatPrice,
   };
